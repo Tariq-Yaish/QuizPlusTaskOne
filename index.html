@@ -16,19 +16,23 @@
             <nav></nav>
         </header>
 
+        <!-- 1. The extracted header text sits completely outside the grid -->
+        <div class="form_header">
+            <h1>Contact Us:</h1>
+            <p>
+                Need an experienced and skilled hand with custom IT projects?<br>
+                Fill out the form to get a free consultation.
+            </p>
+        </div>
+
+        <!-- 2. The grid now starts precisely with the inputs and the offices -->
         <main class="main_container">
             <section class="left_section">
                 <form class="form_container">
-                    <h1>Contact Us:</h1>
-                    <p>
-                        Need an experienced and skilled hand with custom IT projects?<br>
-                        Fill out the form to get a free consultation.
-                    </p>
-
                     <input placeholder="Your Company Name" type="text">
                     <input placeholder="Nature of Business" type="text">
 
-                    <div class="row-of-inputs">
+                    <div class="row_of_inputs">
                         <input placeholder="Address" type="text">
                         <input placeholder="Postcode" type="text">
                     </div>
@@ -40,12 +44,49 @@
                     <input placeholder="LinkedIn" type="text">
                     <input placeholder="Let's Talk About Your Idea" type="text">
 
+                    <div class="upload_container">
+                        <p>↑</p>
+                        <p>
+                            Upload Additional Files
+                        </p>
+                    </div>
+                    <p class="hint">Attach a file. The file size of your document should exceed 10MB</p>
+
                     <button type="submit" class="submit-buttons">SUBMIT</button>
                 </form>
             </section>
 
             <aside class="right_section">
+                <div class="office">
+                    <h3>Offices</h3>
+                    <p>
+                        United States<br>500 5th Avenue Suite 400, NY 10110<br><br>
+                        United Kingdom<br>High St, Bromley BR1 1DN<br><br>
+                        France<br>80 avenue des Terroirs de France, Paris
+                    </p>
+                </div>
 
+                <div class="inquiry">
+                    <h3>For Quick Inquiries</h3>
+
+                    <div class="contact_row">
+                        <img src="./icons/uk.svg" alt="uk_flag">
+                        <p>+44 7777777777</p>
+                    </div>
+
+                    <div class="contact_row">
+                        <img src="./icons/us.svg" alt="us_flag">
+                        <p>+1 3333333333</p>
+                    </div>
+                </div>
+
+                <div class="newsletter">
+                    <h3>Would you like to join our newsletter?</h3>
+                    <div class="input_newsletter">
+                        <input type="email" placeholder="Email">
+                        <button>✓</button>
+                    </div>
+                </div>
             </aside>
         </main>
 
