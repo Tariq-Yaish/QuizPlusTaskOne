@@ -1,0 +1,29 @@
+.inter
+{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.main_container
+{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+}
+
+.main_container section
+{
+
+}
+
+.main_container aside
+{
+
+}
+
+.form_container h1
+{
+
+}
