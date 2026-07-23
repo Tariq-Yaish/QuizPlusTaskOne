@@ -1,3 +1,8 @@
+body
+{
+    min-width: 320px;
+}
+
 .main_container
 {
     display: grid;
@@ -268,4 +273,55 @@
     line-height: 160%;
     letter-spacing: 0.5px;
     color: #383C3E;
+}
+
+@media (max-width: 768px)
+{
+    .logo
+    {
+        display: none;
+    }
+
+    .navbar
+    {
+        justify-content: flex-start;
+        padding-left: 0;
+    }
+
+    .navbar ul
+    {
+        display: none;
+    }
+
+    .menu_burger
+    {
+        background: transparent;
+        padding: 0;
+        margin: 0;
+        display: block;
+        border: none;
+    }
+
+    .main_container
+    {
+       grid-template-columns: 1fr;
+    }
+
+    .form_header h1
+    {
+        font-size: 32px;
+    }
+
+    .row_of_inputs
+    {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .navbar ul.show_menu
+    {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
 }
