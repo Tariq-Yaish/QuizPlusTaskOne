@@ -10,13 +10,23 @@
     </head>
 
     <body>
-        <header>
-            <div>Logo</div>
-            <button>MENU</button>
-            <nav></nav>
+        <header class="navbar">
+            <img class="logo" src="./icons/android-chrome-192x192.png" alt="main_image" height="70" width="70">
+
+            <nav>
+                <ul>
+                    <li><a href="#">Company</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">FineTech Solutions</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#" class="active_page">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <button class="menu_burger"><img src="./icons/menu.svg" alt="burger"></button>
         </header>
 
-        <!-- 1. The extracted header text sits completely outside the grid -->
         <div class="form_header">
             <h1>Contact Us:</h1>
             <p>
@@ -25,7 +35,6 @@
             </p>
         </div>
 
-        <!-- 2. The grid now starts precisely with the inputs and the offices -->
         <main class="main_container">
             <section class="left_section">
                 <form class="form_container">
@@ -45,14 +54,19 @@
                     <input placeholder="Let's Talk About Your Idea" type="text">
 
                     <div class="upload_container">
-                        <p>↑</p>
+                        <img src="./icons/upload.svg" alt="Upload Icon">
                         <p>
                             Upload Additional Files
                         </p>
                     </div>
-                    <p class="hint">Attach a file. The file size of your document should exceed 10MB</p>
+                    <p class="hint">Attach a file. The file size of your document should not exceed 10MB</p>
 
                     <button type="submit" class="submit-buttons">SUBMIT</button>
+
+                    <div class="nda_form">
+                        <input type="checkbox" id="nda_checkbox">
+                        <label for="nda_checkbox">I want to protect my data by signing an NDA</label>
+                    </div>
                 </form>
             </section>
 
@@ -61,7 +75,7 @@
                     <h3>Offices</h3>
                     <p>
                         United States<br>500 5th Avenue Suite 400, NY 10110<br><br>
-                        United Kingdom<br>High St, Bromley BR1 1DN<br><br>
+                        United Kingdom<br>High St, Brodley BR1 1DN<br><br>
                         France<br>80 avenue des Terroirs de France, Paris
                     </p>
                 </div>
