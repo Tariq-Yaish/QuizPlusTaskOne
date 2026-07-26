@@ -15,6 +15,17 @@ const isValidEmail = (email) =>
     return email_regex.test(email);
 }
 
+const isValidNumber = (number) =>
+{
+    if (!number.startsWith('+'))
+    {
+        return false;
+    }
+
+    const digitsOnly = number.replace(/\D/g, '');
+    return digitsOnly.length >= 7 && digitsOnly.length <= 15;
+}
+
 const showError = (item, message) =>
 {
     let exitError = item.nextElementSibling;
@@ -52,9 +63,18 @@ data.forEach((item) =>
             const value = item.value.trim();
 
             const is_Email_Field = item.getAttribute('type') === 'email' || item.placeholder.toLowerCase().includes('email');
+            const is_Phone_Field = item.getAttribute('type') === 'tel' || item.placeholder.toLowerCase().includes('phone');
+
             if (is_Email_Field)
             {
                 if (isValidEmail(value))
+                {
+                    clearErrors(item);
+                }
+            }
+            else if (is_Phone_Field)
+            {
+                if (isValidNumber(value))
                 {
                     clearErrors(item);
                 }
@@ -80,6 +100,7 @@ form.addEventListener('submit', (e) =>
         const value = item.value.trim();
         const field_name = item.getAttribute('aria-label') || item.placeholder || 'This';
         const is_Email_Field = item.getAttribute('type') === 'email' || item.placeholder.toLowerCase().includes('email');
+        const is_Phone_Field = item.getAttribute('type') === 'tel' || item.placeholder.toLowerCase().includes('phone');
 
         if (value === '')
         {
@@ -90,6 +111,11 @@ form.addEventListener('submit', (e) =>
         {
             isValid = false;
             showError(item, `Please enter a valid ${field_name} format.`)
+        }
+        else if (is_Phone_Field && !isValidNumber(value))
+        {
+            isValid = false;
+            showError(item, `Please enter a valid ${field_name} starting with '+' (7-15 digits).`)
         }
         else
         {
