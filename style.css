@@ -284,13 +284,26 @@ body
 
     .navbar
     {
+        position: relative;
         justify-content: flex-start;
         padding-left: 0;
     }
 
     .navbar ul
     {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 1rem 0;
+        box-shadow: 0 10px 25px -5px rgb(0, 0, 0, 0.3);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-15px);
+        transition: all .3s;
     }
 
     .menu_burger
@@ -320,8 +333,69 @@ body
 
     .navbar ul.show_menu
     {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .navbar ul li
+    {
+        padding: 12px 24px;
+        text-align: left;
+    }
+
+    .navbar a
+    {
+        font-weight: 600;
+    }
+}
+
+.error_text
+{
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: red;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 10px;
+    animation: fadeSlideIn 0.5s ease-in-out forwards;
+    padding-left: 13px;
+}
+
+@keyframes  fadeSlideIn
+{
+    from
+    {
+        opacity: 0;
+        transform: translatex(-15px);
+    }
+    to
+    {
+        opacity: 1;
+        transform: translatex(0);
+    }
+}
+
+.form_container input.item_error
+{
+    border-bottom-color: transparent !important;
+    background-image: linear-gradient(to right, red, red);
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    animation: drawBorder 0.5s ease-in-out forwards;
+
+    margin-bottom: 4px;
+}
+
+@keyframes drawBorder
+{
+    from
+    {
+        background-size: 0 2px;
+    }
+    to
+    {
+        background-size: 100% 2px;
     }
 }
