@@ -103,7 +103,7 @@ form.addEventListener('submit', (e) =>
     }
 });
 
-const news_letter_input = document.querySelector('.input-letter input');
+const news_letter_input = document.querySelector('.input_newsletter input');
 const news_letter_button = document.querySelector('.input_newsletter button');
 
 news_letter_input.addEventListener('input', () =>
