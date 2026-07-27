@@ -440,3 +440,88 @@ body
         background-size: 100% 2px;
     }
 }
+
+.modal_overlay
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal_content
+{
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+
+.modal_header
+{
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.modal_header h2
+{
+    font-size: 18px;
+    color: #383C3E;
+    margin: 0;
+}
+
+.modal_close
+{
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #383C3E;
+}
+
+.modal_body
+{
+    padding: 1.5rem;
+    overflow-y: auto;
+    flex-grow: 1;
+    font-size: 14px;
+    color: rgb(115 123 125 / 0.96);
+    line-height: 160%;
+}
+
+.modal_footer
+{
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #ddd;
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.modal_footer input[type="checkbox"]
+{
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.modal_footer label
+{
+    font-size: 13px;
+    color: #383C3E;
+    cursor: pointer;
+}

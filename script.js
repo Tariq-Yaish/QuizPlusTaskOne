@@ -1,6 +1,12 @@
 const burger = document.querySelector('.menu_burger');
 const nav_list = document.querySelector('.navbar ul');
 
+const openTerms = document.getElementById('open_terms_button');
+const termsModal = document.getElementById('terms_modal');
+const closeTerms = document.getElementById('close_terms_button');
+const modalContent = document.getElementById('modal_terms_content');
+const modalCheckbox = document.getElementById('modal_terms_checkbox');
+
 burger.addEventListener('click', () =>
 {
     nav_list.classList.toggle('show_menu');
@@ -123,6 +129,12 @@ form.addEventListener('submit', (e) =>
         }
     });
 
+    if (!modalCheckbox.checked)
+    {
+        isValid = false;
+        alert('You must read and accept the terms and conditions before submitting.');
+    }
+
     if (isValid)
     {
         console.log("All fields are valid and filled");
@@ -165,3 +177,37 @@ news_letter_button.addEventListener('click', (e) =>
     }
 });
 
+openTerms.addEventListener('click', (e) =>
+{
+    termsModal.style.display = 'flex';
+    fetch('terms.txt').then(response =>
+    {
+        if (!response.ok)
+        {
+            throw new Error('Failed to open file.');
+        }
+
+        return response.text();
+    }).then(data =>
+    {
+        modalContent.innerText = data;
+    })
+        .catch(error =>
+        {
+            modalContent.innerText = 'Error occurred when loading terms and conditions. Please try again later.'
+            console.error(error);
+        })
+});
+
+closeTerms.addEventListener('click', (e) =>
+{
+    termsModal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) =>
+{
+    if (e.target === termsModal)
+    {
+        termsModal.style.display = 'none';
+    }
+});
