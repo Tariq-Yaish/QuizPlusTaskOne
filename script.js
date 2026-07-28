@@ -1,6 +1,5 @@
 const burger = document.querySelector('.menu_burger');
 const nav_list = document.querySelector('.navbar ul');
-
 const openTerms = document.getElementById('open_terms_button');
 const termsModal = document.getElementById('terms_modal');
 const closeTerms = document.getElementById('close_modal_button');
@@ -257,4 +256,60 @@ modalCheckbox.addEventListener('change', (e) =>
             existingTermsError.remove();
         }
     }
+});
+
+const services_tab = document.querySelector('.services_page');
+const dynamic_content = document.getElementById('dynamic_content_area');
+const contact_tab = document.getElementById('contact_page');
+const main_container = document.querySelector('.main_container');
+const page_header_title = document.querySelector('.form_header h1');
+const page_header_description = document.querySelector('.form_header p');
+
+services_tab.addEventListener('click', (e) =>
+{
+    e.preventDefault();
+
+    services_tab.classList.add('active_page');
+    contact_tab.classList.remove('active_page');
+    page_header_title.textContent = "Our Services:";
+    page_header_description.textContent = "Explore what we offer and check out our latest posts.";
+
+    main_container.style.display = 'none';
+    dynamic_content.style.display = 'block';
+    dynamic_content.innerHTML = '<div class="loader"></div><p style="text-align: center; font-size: 13px; color: #666;">Loading content...</p>';
+
+    fetch('https://jsonplaceholder.typicode.com/posts/1')
+        .then(response =>
+        {
+            if (!response.ok)
+            {
+                throw new Error('Failed to load services.');
+            }
+            return response.json();
+        })
+        .then(data =>
+        {
+            dynamic_content.innerHTML = `
+                <h2>${data.title}</h2>
+                <p style="margin-top: 1rem; line-height: 160%;">${data.body}</p>
+            `;
+        })
+        .catch(error =>
+        {
+            dynamic_content.innerHTML = '<p style="color: red; text-align: center;">Failed to load content. Please try again later.</p>';
+            console.error('Fetch error:', error);
+        });
+});
+
+contact_tab.addEventListener('click', (e) =>
+{
+    e.preventDefault();
+
+    page_header_title.textContent = "Contact Us:";
+    page_header_description.innerHTML = "Need an experienced and skilled hand with custom IT projects?<br>Fill out the form to get a free consultation.";
+
+    contact_tab.classList.add('active_page');
+    services_tab.classList.remove('active_page');
+    dynamic_content.style.display = 'none';
+    main_container.style.display = 'grid';
 });

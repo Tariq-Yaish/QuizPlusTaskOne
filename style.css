@@ -551,3 +551,37 @@ body
     85% { opacity: 1; transform: translateY(0); }
     100% { opacity: 0; transform: translateY(20px); }
 }
+
+.dynamic_content_container
+{
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+    font-family: "Inter", sans-serif;
+    color: #383C3E;
+}
+
+.dynamic_content_container h3
+{
+    margin-top: 0;
+    color: #008F17;
+}
+
+.loader
+{
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #008F17;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    margin: 10px auto;
+}
+
+@keyframes spin
+{
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
