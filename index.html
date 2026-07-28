@@ -66,7 +66,7 @@
                     </div>
                     <p class="hint">Attach a file. The file size of your document should not exceed 10MB</p>
 
-                    <div class="terms_container">
+                    <div class="terms_container" id="terms_block">
                         <button type="button" id="open_terms_button" class="submit-buttons terms_link_button">Read our terms</button>
                     </div>
 
@@ -113,26 +113,22 @@
             </aside>
         </main>
 
-        <div>
-
-        </div>
-
-        <script src="./script.js"></script>
-
         <div id="terms_modal" class="modal_overlay" style="display: none;">
             <div class="modal_content">
-                <div class="model_header">
+                <div class="modal_header">
                     <h2>Terms & Conditions</h2>
                     <button type="button" id="close_modal_button" class="modal_close">&times;</button>
                 </div>
 
                 <div class="modal_body" id="modal_terms_content"></div>
 
-                <div class="model_footer">
+                <div class="modal_footer">
                     <input type="checkbox" id="modal_terms_checkbox">
                     <label for="modal_terms_checkbox">I have read and I agree to the terms and conditions</label>
                 </div>
             </div>
         </div>
+
+        <script src="./script.js"></script>
     </body>
 </html>

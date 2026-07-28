@@ -3,9 +3,22 @@ const nav_list = document.querySelector('.navbar ul');
 
 const openTerms = document.getElementById('open_terms_button');
 const termsModal = document.getElementById('terms_modal');
-const closeTerms = document.getElementById('close_terms_button');
+const closeTerms = document.getElementById('close_modal_button');
 const modalContent = document.getElementById('modal_terms_content');
 const modalCheckbox = document.getElementById('modal_terms_checkbox');
+
+const show_toast = (message) =>
+{
+    const toast = document.createElement('div');
+    toast.classList.add('success_toast');
+    toast.textContent = message;
+    document.body.appendChild(toast);
+
+    setTimeout( () =>
+    {
+        toast.remove();
+    }, 5000);
+}
 
 burger.addEventListener('click', () =>
 {
@@ -129,15 +142,35 @@ form.addEventListener('submit', (e) =>
         }
     });
 
+    const termsContainer = document.getElementById('terms_block');
+    let termsError = termsContainer.nextElementSibling
+
     if (!modalCheckbox.checked)
     {
         isValid = false;
-        alert('You must read and accept the terms and conditions before submitting.');
+
+        if (!termsError || !termsError.classList.contains('error_text'))
+        {
+            const errorSpan = document.createElement('span');
+            errorSpan.classList.add('error_text');
+            errorSpan.innerText = 'You must read and accept the terms and conditions'
+            termsContainer.after(errorSpan);
+        }
+    }
+    else
+    {
+        if (termsError?.classList.contains('error_text'))
+        {
+            termsError.remove();
+        }
     }
 
     if (isValid)
     {
         console.log("All fields are valid and filled");
+        show_toast("Application Submitted successfully.");
+        form.reset();
+        modalCheckbox.checked = false;
     }
 });
 
@@ -209,5 +242,19 @@ window.addEventListener('click', (e) =>
     if (e.target === termsModal)
     {
         termsModal.style.display = 'none';
+    }
+});
+
+modalCheckbox.addEventListener('change', (e) =>
+{
+    if (modalCheckbox.checked)
+    {
+        const termsContainer = document.getElementById('terms_block');
+        let existingTermsError = termsContainer.nextElementSibling;
+
+        if (existingTermsError?.classList.contains('error_text'))
+        {
+            existingTermsError.remove();
+        }
     }
 });

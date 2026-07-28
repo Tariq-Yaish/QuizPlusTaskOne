@@ -494,6 +494,7 @@ body
 
 .modal_body
 {
+    font-family: "Inter", sans-serif;
     padding: 1.5rem;
     overflow-y: auto;
     flex-grow: 1;
@@ -521,7 +522,32 @@ body
 
 .modal_footer label
 {
+    font-family: "Inter", sans-serif;
     font-size: 13px;
     color: #383C3E;
     cursor: pointer;
+}
+
+.success_toast
+{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #008F17;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 2000;
+    animation: fadeInOut 3s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(20px); }
+    15% { opacity: 1; transform: translateY(0); }
+    85% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(20px); }
 }
